@@ -12,13 +12,16 @@ namespace Logic.console
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
             Console.Write("Number of variables: ");
             numberOfVariables = int.Parse(Console.ReadLine());
 
-            Console.Write("Choose logical operator (AND, OR, XOR): ");
-            var key = Console.ReadLine().ToUpper();
+            Console.WriteLine("\nChoose an operator: ");
+            Console.WriteLine("1) AND");
+            Console.WriteLine("2) OR");
+            Console.WriteLine("3) XOR");
+            Console.Write("\nSelect an operator: ");
+
+            var key = int.Parse(Console.ReadLine());
             logicalFunc = GetFunction(key);
 
             CreateTable();
@@ -32,7 +35,6 @@ namespace Logic.console
             var count = 4 * numberOfVariables + 6;
             var line = new String('-', count);
 
-            Console.WriteLine($"Truth table");
             Console.WriteLine($"{varListText} | result");
             Console.WriteLine(line);
 
@@ -48,15 +50,15 @@ namespace Logic.console
             }
         }
 
-        public static Func<string, bool> GetFunction(string key)
+        public static Func<string, bool> GetFunction(int key)
         {
             switch (key)
             {
-                case "AND":
+                case 1:
                     return Logical.AND;
-                case "OR":
+                case 2:
                     return Logical.OR;
-                case "XOR":
+                case 3:
                     return Logical.XOR;
                 default:
                     throw new FormatException("No have this operator.");
