@@ -29,7 +29,7 @@ namespace Logic.console
 
         public static void CreateTable()
         {
-            var varList = Enumerable.Range(112, numberOfVariables).Select(it => Convert.ToChar(it));
+            var varList = Enumerable.Range(80, numberOfVariables).Select(it => Convert.ToChar(it));
             var varListText = string.Join(" | ", varList);
 
             var count = 4 * numberOfVariables + 6;

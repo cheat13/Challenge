@@ -17,6 +17,14 @@ namespace Logic.test
         }
 
         [Theory]
+        [MemberData(nameof(GetSampleSpace))]
+        public void TestCreateSampleSpaceWithCartesianProduct(int numberOfVariables, IEnumerable<string> expected)
+        {
+            var result = Logical.CreateSampleSpaceWithCartesianProduct(numberOfVariables);
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [Theory]
         [MemberData(nameof(GetPossibleAND))]
         public void TestAND(string pattern, bool expected)
         {
